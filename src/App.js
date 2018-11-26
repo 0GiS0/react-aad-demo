@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import NavBar from './NavBar';
+import ClaimsTable from './ClaimsTable';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -20,6 +23,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <ClaimsTable />
       </div>
     );
   }
