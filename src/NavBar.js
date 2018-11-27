@@ -1,4 +1,4 @@
-//  src\Navbar.js
+//  /src/Navbar.js
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import AADService from './AADService';

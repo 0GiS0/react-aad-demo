@@ -1,3 +1,4 @@
+//  /src/ClaimsTable.js
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import AADService from './AADService';
@@ -28,26 +29,17 @@ export default class ClaimsTable extends Component {
 
     isAuthenticated() {
         const user = this.AzureADService.getUser();
-        // console.log(user);
+        const roles = this.AzureADService.getRoles();
+
         this.setState({
             userName: user.userName,
             name: user.profile.name,
             given_name: user.profile.given_name,
             family_name: user.profile.family_name,
-            isWriter: null,
-            isContributor: null
-        });
-
-        const roles = this.AzureADService.getRoles();
-        this.setState({
-            roles: roles ? roles : "none"
-        });
-
-
-        this.setState({
+            roles: roles ? roles : "none",
             isWriter: this.AzureADService.isInRole('Writer') ? "yes" : "no",
             isContributor: this.AzureADService.isInRole('Contributor') ? "yes" : "no"
-        })
+        });
     }
 
     render() {
@@ -91,6 +83,7 @@ export default class ClaimsTable extends Component {
                         </tr>
                     </tbody>
                 </Table>
+
             </div >
         )
     }
